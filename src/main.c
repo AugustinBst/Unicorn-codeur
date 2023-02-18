@@ -26,6 +26,20 @@ int mouse_pos(window_struct_t *stru_wind)
         return 1;
     }
     return 0;
+}        sfSprite *sprite_land;
+        sfTexture *texture_land;
+
+
+int init_land(window_struct_t *stru_wind)
+{
+    stru_wind->texture_land =
+    sfTexture_createFromFile("assets/land.png", NULL);
+    stru_wind->sprite_land = sfSprite_create();
+    sfSprite_setTexture(stru_wind->sprite_land,
+    stru_wind->texture_land, sfTrue);
+    sfSprite_setScale(stru_wind->sprite_land, (sfVector2f){ 1.2, 1.5});
+
+    return 0;
 }
 
 int init_screen(window_struct_t *stru_wind)
@@ -101,6 +115,8 @@ int all_event_menu(window_struct_t *stru_wind)
 
 int draw_land(window_struct_t *stru_wind)
 {
+    sfRenderWindow_drawSprite(stru_wind->window,
+    stru_wind->sprite_land, NULL);
     return 0;
 }
 
@@ -121,7 +137,8 @@ int loop_menu (window_struct_t *stru_wind)
         if (stru_wind->display == true) {
             draw_menu(stru_wind);
         } else {
-        
+            init_land(stru_wind);
+            draw_land(stru_wind);
         }
         all_event_menu(stru_wind);
         sfRenderWindow_display(stru_wind->window);

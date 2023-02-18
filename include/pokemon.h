@@ -25,7 +25,6 @@
         sfEvent event;
         int coord_mouse_y;
         int coord_mouse_x;
-        
         } window_struct_t;
 
     int open_file(char *buffer);
