@@ -22,4 +22,6 @@ typedef struct m_sprite_struct{
     int nb_rect;
 } s_sprite_anim;
 
+s_sprite_anim init_attack(char *path);
+
 #endif /* !SPRITE_STRUCT_ */
