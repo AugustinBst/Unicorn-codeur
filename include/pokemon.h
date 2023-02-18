@@ -22,4 +22,6 @@
         bool display;
     } window_struct_t;
 
+    int open_file(char *buffer);
+
 #endif /* !POKEMON_H_ */
