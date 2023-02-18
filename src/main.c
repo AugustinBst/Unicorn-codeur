@@ -8,6 +8,26 @@
 #include "../include/pokemon.h"
 #include <stdlib.h>
 
+int mouse_pos(window_struct_t *stru_wind)
+{
+    sfVector2i hunter_mous_pos =
+    sfMouse_getPositionRenderWindow(stru_wind->window);
+    sfVector2f pos_start = sfSprite_getPosition(stru_wind->sprite_start);
+    sfVector2u size_start = sfTexture_getSize(stru_wind->texture_start);
+    sfVector2f pos_quit = sfSprite_getPosition(stru_wind->sprite_quit);
+    sfVector2u size_quit = sfTexture_getSize(stru_wind->texture_quit);
+
+    if ( pos_start.x <= hunter_mous_pos.x && hunter_mous_pos.x <= pos_start.x + size_start.x * 0.25 &&
+    pos_start.y <= hunter_mous_pos.y && hunter_mous_pos.y <= pos_start.y + size_start.y * 0.25) {
+        stru_wind->display = false;
+    }
+    if ( pos_quit.x <= hunter_mous_pos.x && hunter_mous_pos.x <= pos_quit.x + size_quit.x * 0.25 &&
+    pos_quit.y <= hunter_mous_pos.y && hunter_mous_pos.y <= pos_quit.y + size_quit.y * 0.25) {
+        return 1;
+    }
+    return 0;
+}
+
 int init_screen(window_struct_t *stru_wind)
 {
     stru_wind->param= (sfVideoMode){950, 720, 32};
@@ -65,7 +85,9 @@ int all_event_menu(window_struct_t *stru_wind)
             return 1;
             }
         if (event.type == sfEvtMouseButtonPressed && stru_wind->display != false) {
-            stru_wind->display = false;
+            if (mouse_pos(stru_wind) == 1) {
+                sfRenderWindow_close(stru_wind->window);
+            }
         }
     //    if (event.type == sfEvtKeyPressed && sfKeyboard_isKeyPressed(sfKeyL)) {
     //        plane_tower_t->statut_t = !(plane_tower_t->statut_t);

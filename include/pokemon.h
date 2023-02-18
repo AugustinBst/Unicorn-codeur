@@ -15,11 +15,17 @@
         sfRenderWindow *window;
         sfSprite *sprite_bg;
         sfTexture *texture_bg;
+        sfSprite *sprite_land;
+        sfTexture *texture_land;
         sfSprite *sprite_start;
         sfTexture *texture_start;
         sfSprite *sprite_quit;
         sfTexture *texture_quit;
         bool display;
-    } window_struct_t;
+        sfEvent event;
+        int coord_mouse_y;
+        int coord_mouse_x;
+        
+        } window_struct_t;
 
 #endif /* !POKEMON_H_ */
