@@ -13,33 +13,18 @@
 #include <fcntl.h>
 #include <string.h>
 
-int name_way(char *buffer, int *count, int *line)
+char **name_way(char *buffer, int *count, int *line)
 {
     char *word = malloc(sizeof(char) * *count);
-    char *separ = malloc(sizeof(char) * *count);
-    char **animation = malloc(sizeof(char*) * *line);
-    int i = 0, nb = 0;
-    char **name = malloc(sizeof(char*) * *count);
-    char **way = malloc(sizeof(char*) * *count);
+    char **animation = malloc(sizeof(char*) * (*count * 2) + 1);
+    int i = 0;
 
-
-    while (word = strtok_r(buffer, "\n", &buffer)) {
+    while (word = strtok_r(buffer, "@\n", &buffer)) {
         animation[i] = word;
         i++;
     }
-    separ = animation[0];
-    i--;
-    for (int j = 0; i >= 0; i--, j++) {
-        while (word = strtok_r(animation[i], "@", &animation[i])) {
-            if (nb == 0)
-                name[j] = word;
-            else
-                way[j] = word;
-            nb++;
-        }
-        nb = 0;
-    }
-    return 0;
+    printf("%s\n", animation[2]);
+    return animation;
 }
 
 int nb_word(char *buffer)
@@ -87,4 +72,3 @@ int open_file(char *buffer)
     }
     return 0;
 }
-
