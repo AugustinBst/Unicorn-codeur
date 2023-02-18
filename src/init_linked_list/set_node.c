@@ -5,6 +5,8 @@
 ** set_node
 */
 
+#include <stdlib.h>
+#include <string.h>
 #include "lst_path.h"
 #include "list_sprite_anim.h"
 
@@ -12,7 +14,7 @@ void set_node_path(char **elms,  m_path **lst)
 {
     m_path *path = malloc(sizeof(m_path));
     path->name = strdup(elms[0]);
-    path->path = strndup(elms[1], strlen(elms[1] - 1));
+    path->path = strdup(elms[1]);
     path->next = (*lst);
     path->prev = (*lst)->prev;
     path->prev->next = path;
