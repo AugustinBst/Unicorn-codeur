@@ -20,7 +20,7 @@ int init_linked_list(char **elms, m_sprite_lst *anim_lst, m_path *path_lst)
             state++;
         }
         set_node_path(&elms[nb_elm], &path_lst);
-        set_node_anim(path_lst, anim_lst);
+        set_node_anim(path_lst, &anim_lst);
     }
     return (0);
 }

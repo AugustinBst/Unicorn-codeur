@@ -20,10 +20,10 @@ void set_node_path(char **elms,  m_path **lst)
     (*lst) = (*lst)->prev;
 }
 
-void set_node_anim(m_path **path, m_sprite_lst **anim)
+void set_node_anim(m_path *path, m_sprite_lst **anim)
 {
     m_sprite_lst *elm_anim = malloc(sizeof(m_sprite_lst));
-    s_sprite_anim sprite = init_attack((*path)->path);
+    s_sprite_anim sprite = init_attack(path->path);
     elm_anim->sprite = sprite;
     elm_anim->next = (*anim);
     elm_anim->prev = (*anim)->prev;
