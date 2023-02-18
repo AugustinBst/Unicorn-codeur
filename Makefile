@@ -7,7 +7,8 @@
 
 SRC	=
 
-MAIN = src/main.c
+MAIN = src/main.c \
+		src/launch_oogway.c \
 
 INCLUDE = include/
 

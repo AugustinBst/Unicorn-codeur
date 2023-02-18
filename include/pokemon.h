@@ -22,9 +22,12 @@
         sfSprite *sprite_quit;
         sfTexture *texture_quit;
         bool display;
+        bool status;
         sfEvent event;
         int coord_mouse_y;
         int coord_mouse_x;
+        sfSprite *sprite_star;
+        sfTexture *texture_star;
         } window_struct_t;
 
     int open_file(char *buffer);
