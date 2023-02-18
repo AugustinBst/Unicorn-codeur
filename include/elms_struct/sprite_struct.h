@@ -19,6 +19,8 @@ typedef struct m_sprite_struct{
     sfClock *clock;
     sfTime time;
     float seconds;
+    int size_rect;
+    int nb_rect;
 } s_sprite_anim;
 
 #endif /* !SPRITE_STRUCT_ */
