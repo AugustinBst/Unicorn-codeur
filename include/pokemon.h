@@ -5,6 +5,7 @@
 ** pokemon.h
 */
 #include <SFML/Graphics.h>
+#include <stdbool.h>
 
 #ifndef POKEMON_H_
     #define POKEMON_H_
@@ -18,6 +19,7 @@
         sfTexture *texture_start;
         sfSprite *sprite_quit;
         sfTexture *texture_quit;
+        bool display;
     } window_struct_t;
 
 #endif /* !POKEMON_H_ */
