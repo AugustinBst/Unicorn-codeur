@@ -42,4 +42,6 @@ typedef struct oog_struct {
     back_s background;
 } oog_t;
 
+    int launch_oogway(window_struct_t *win, oog_t *oog);
+
 #endif /* !OOG_H */
